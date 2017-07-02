@@ -1,7 +1,7 @@
 create database votedb;
 use votedb;
 
-#Ñ¡Ïî±í
+#é€‰é¡¹è¡¨
 create table item(
 	id bigint unsigned primary key auto_increment,
 	name varchar(64) not null,
@@ -9,7 +9,7 @@ create table item(
 	vote_count bigint unsigned
 ) engine MyISAM;
 
-#Í¶Æ±ÈÕÖ¾±í
+#æŠ•ç¥¨æ—¥å¿—è¡¨
 create table vote_log(
 	id bigint unsigned primary key auto_increment,
 	ip varchar(20) not null,
@@ -18,7 +18,7 @@ create table vote_log(
 ) engine MyISAM;
 
 
-#¹ıÂËipµÄ±í
+#è¿‡æ»¤ipè¡¨
 create table filter(
 	id bigint unsigned primary key auto_increment,
 	ip varchar(20) not null

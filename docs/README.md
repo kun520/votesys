@@ -7,7 +7,7 @@
 1. 选项表 item 
 2. 投票的日志表 vote_log 
 3. 过滤ip的表 filter
-
+ 
 表结构具体见sql.sql文件
 
 **项目的创建**

@@ -2,6 +2,9 @@
 
 require_once 'BaseController.php';
 require_once  APPLICATION_PATH.'/models/Item.php';
+/*
+ * 处理后台请求的控制器
+ */
 class AdminController extends BaseController
 {
     public function indexAction()
