@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//application/controllers/BaseController.php=UTF-8
+=======
+encoding//application/views/scripts/admin/additemui.phtml=UTF-8
+>>>>>>> branch 'master' of git@github.com:kun520/votesys.git
 encoding//application/views/scripts/admin/index.phtml=UTF-8
 encoding//application/views/scripts/admin/ok.phtml=UTF-8
