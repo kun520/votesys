@@ -706,7 +706,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * If either the controller or module are unnecessary for forwarding,
      * simply pass null values for them before specifying the parameters.
      *
-     * @param string $action
+     * @param string $action 表示控制器对应的Action前面的方法
      * @param string $controller
      * @param string $module
      * @param array $params

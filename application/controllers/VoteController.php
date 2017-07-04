@@ -21,7 +21,7 @@ class VoteController extends BaseController
         $where="ip='$ip' AND vote_date=$today ";
         $res=$voteLogModel->fetchAll($where)->toArray();
         
-        if(count($res)>0){
+        if(count($res)>10){
             //已投过票
             $this->render('error');
             return;
@@ -36,7 +36,7 @@ class VoteController extends BaseController
                 //更新item.vote_count
                 $itemModel=new Item();
                 $set=array(
-                    'vote_count'=>'vote_count+1'
+                    'vote_count'=>'+1'
                 );
                 $where="id=$item_id";
                 $itemModel->update($set, $where);
