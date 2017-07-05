@@ -3,6 +3,7 @@
 require_once 'BaseController.php';
 require_once  APPLICATION_PATH.'/models/Item.php';
 require_once  APPLICATION_PATH.'/models/VoteLog.php';
+require_once  APPLICATION_PATH.'/models/Filter.php';
 /*
  * 处理投票请求的控制器
  */
@@ -13,7 +14,15 @@ class VoteController extends BaseController
         //获取用户投票id
         $item_id=$this->getRequest()->getParam('itemid');        
         $ip=$this->getRequest()->getServer('REMOTE_ADDR');
-           
+        
+        //查看这个ip是否被禁用
+        $filterModel=new Filter();
+        if(count($filterModel->fetchAll("ip='$ip'"))>0){
+            $this->view->info='你被禁用了';
+            $this->forward('showinfo','global');
+            return;
+        }
+        
         $today=date('Ymd');
         
         //先查看vote_log今天是否已有该ip的记录
@@ -36,12 +45,14 @@ class VoteController extends BaseController
                 //更新item.vote_count
                 $itemModel=new Item();
                 $set=array(
-                    'vote_count'=>'+1'
+                    'vote_count'=>new Zend_Db_Expr('vote_count + 1')
                 );
                 $where="id=$item_id";
                 $itemModel->update($set, $where);
             }
-            $this->render('ok');
+            $this->view->info='投票成功';
+            $this->view->tourl='/index/index';            
+            $this->forward('showinforefresh','global');
         }
         
     }

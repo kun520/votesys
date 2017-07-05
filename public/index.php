@@ -1,6 +1,6 @@
 <?php
 
-file_put_contents('d:/mylog.txt', __FILE__.'---'.__FUNCTION__."\r\n",FILE_APPEND);
+//file_put_contents('d:/mylog.txt', __FILE__.'---'.__FUNCTION__."\r\n",FILE_APPEND);
 
 // Define path to application directory
 defined('APPLICATION_PATH')
